@@ -176,7 +176,7 @@ void Start() {
 void Update() {
     if (firstTry)
   {
-    Matrix4x4 example = camera.projectionMatrix;
+    Matrix4x4 example = camera.previousViewProjectionMatrix;
     for (int i = 0; i < 4; i++)
     {
       for (int j = 0; j < 4; j++)
@@ -195,6 +195,22 @@ void Update() {
 
 ## 19. Aplica una rotación en el start de uno de los objetos de la escena y muestra la matriz de cambio al sistema de referencias mundial.
 
+Sería emplear el mismo sistema que tenia en la respuesta 18, cambiando el start como se meciona y modificando la variable:
 
+```c#
+  Matrix4x4 example = camera.worldToCameraMatrix;
+```
 
-## 20. ¿Como puedes calcular las coordenadas del sistema de referencia de un objeto con las siguientes propiedades del Transform:?: Position (3, 1, 1), Rotation (45, 0, 45)
+La matriz resultante sería:
+
+1 0 0 0
+0 1 0 -1
+0 0 -1 -10
+0 0 0 1
+
+## 20. ¿Como puedes calcular las coordenadas del sistema de referencia de un objeto con las siguientes propiedades del Transform?:
+
+* **Position (3, 1, 1):** Este te dice que el objeto ha sido desplazado del centro de las escena tres metros en el eje X, uno en el eje Y y uno en el eje .
+* **Rotation (45, 0, 45):**
+
+Se podría hallando la matriz de proyección, 
