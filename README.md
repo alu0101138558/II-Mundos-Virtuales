@@ -124,7 +124,7 @@ Se puede obtener a traves del método:
 ```c#
 public static Matrix4x4 CreateOrthographic (float width, float height, float zNearPlane, float zFarPlane);
 ```
-Los parámetros que se le deben pasar referentes a la cámara, significando cada uno:
+Los parámetros que se le deben pasar referentes a la cámara, significan cada uno:
 
 * **width:** Ancho del volumen de vista.
 * **height:** Alto del volumen de vista. 
@@ -133,13 +133,68 @@ Los parámetros que se le deben pasar referentes a la cámara, significando cada
 
 ## 15. ¿Cómo puedes obtener la matriz de transformación entre el sistema de coordenadas local y el mundial?
 
+Se puede obtener del siguiente método:
+
+```c#
+public static CreateReflection (Plane value);
+```
+El parámetro hace referencia al plano sobre el que se va a realizar la reflexión.
 
 ## 16. ¿Cómo puedes obtener la matriz para cambiar al sistema de referencia de vista?
 
+Se puede obtener a través del siguiente método:
+
+```c#
+public static Matrix4x4 CreatePerspective (float width, float height, float nearPlaneDistance, float farPlaneDistance);
+```
+
+Los parámetros que se le deben pasar referentes al plano, significan cada uno:
+
+* **width:** Ancho del volumen de vista en un plano de vista próximo.
+* **height:** Alto del volumen de vista en un plano de vista próximo. 
+* **nearPlaneDistance:** Distancia al plano de vista próximo.
+* **farPlaneDistance:** Distancia al plano de vista lejano.
+
 ## 17. Especifica la matriz de la proyección usado en un instante de la ejecución del ejercicio 1 de la práctica 1.
+
+La matriz de poyección usada en el instante 1 es :
+
+1.732051 0 0 0
+0 1.732051 0 0
+0 -1.0006 0 -0.60018
+0 0 -1 0
+
+El código que emplee para averiguarlo es el siguiente: 
+
+```c#
+public Camera camera;
+public bool firstTry = true;
+void Start() {
+  camera = GetComponent<Camera>();
+}
+
+void Update() {
+    if (firstTry)
+  {
+    Matrix4x4 example = camera.projectionMatrix;
+    for (int i = 0; i < 4; i++)
+    {
+      for (int j = 0; j < 4; j++)
+      {
+        UnityEngine.Debug.Log("Posicion: " + "[" + i +", " + j + "]" + " = " + example[i, j]);
+      }
+    }
+    firstTry = false;
+  }
+}
+```
 
 ## 18. Especifica la matriz de modelo y vista de la escena del ejercicio 1 de la práctica 1.
 
+
+
 ## 19. Aplica una rotación en el start de uno de los objetos de la escena y muestra la matriz de cambio al sistema de referencias mundial.
+
+
 
 ## 20. ¿Como puedes calcular las coordenadas del sistema de referencia de un objeto con las siguientes propiedades del Transform:?: Position (3, 1, 1), Rotation (45, 0, 45)
