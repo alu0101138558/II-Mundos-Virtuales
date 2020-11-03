@@ -194,7 +194,15 @@ void Update() {
 
 ## 18. Especifica la matriz de modelo y vista de la escena del ejercicio 1 de la práctica 1.
 
+La matriz de modelo y vista de la escena del ejercicio especificado es:
 
+1 0 0 0 
+
+0 1 0 0
+
+0 0 1 0
+
+0 0 0 1 
 
 ## 19. Aplica una rotación en el start de uno de los objetos de la escena y muestra la matriz de cambio al sistema de referencias mundial.
 
