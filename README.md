@@ -226,3 +226,12 @@ La matriz resultante sería:
 
 * **Position (3, 1, 1):** Este te dice que el objeto ha sido desplazado del centro de las escena tres metros en el eje X, uno en el eje Y y uno en el eje .
 * **Rotation (45, 0, 45):** Este dice que el objeto ha sido rotado 45 grados en el eje X, y 45 en el eje Z.
+
+Quedaría de la siguiente manera:
+
+```c#
+Transform body = GetComponet<Transform>();
+body.Translate(3, 1, 1);
+body.Rotate(45, 0, 45);
+Debug.Log(transform.localToWorldMatrix);
+```
